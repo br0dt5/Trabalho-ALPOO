@@ -14,5 +14,5 @@ Aplicação que fornece ao usuário a possibilidade de "montar" e comprar um lan
 Para fazer o uso, é necessário as seguintes bibliotecas:
 
  - JWizard
- - Driver o connector do MySQL
+ - Driver e connector do MySQL
  - JDK 15 ou superior
