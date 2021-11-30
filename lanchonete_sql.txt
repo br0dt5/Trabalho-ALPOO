@@ -1,0 +1,51 @@
+CREATE TABLE `Clientes` (
+  `IDCliente` INT AUTO_INCREMENT NOT NULL,
+  `Nome` VARCHAR(50) NOT NULL,
+  `RG` VARCHAR(9) NOT NULL,
+  `Endereco` VARCHAR(65) NOT NULL,
+  `Telefone` VARCHAR(15) NOT NULL,
+  `Data` TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+  PRIMARY KEY (IDCliente, RG)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `Pedidos` (
+  `IDPedido` INT AUTO_INCREMENT NOT NULL,
+  `IDCliente` INT NOT NULL,
+  `RGCliente` VARCHAR(9) NOT NULL,
+  `Descricao` VARCHAR(200) NOT NULL,
+  `Valor` FLOAT NOT NULL,
+  `Pagamento` VARCHAR(50) NOT NULL,
+  `Data` TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+  PRIMARY KEY(IDPedido, IDCliente, RGCliente),
+  FOREIGN KEY (IDCliente, RGCliente) REFERENCES Clientes(IDCliente, RG)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `Produto` (
+  `IDProduto` INT AUTO_INCREMENT NOT NULL,
+  `Nome` VARCHAR(50) NOT NULL,
+  `Preco` FLOAT NOT NULL,
+  `Categoria` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (IDProduto)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO Produto (Nome, Preco, Categoria)
+VALUES  ('Hambúrguer de Carne', 0.75, 'Ingredientes'),
+        ('Pão de Hambúrguer', 1.2, 'Ingredientes'),
+        ('Pão Quatro Queijos', 1.6, 'Ingredientes'),
+        ('Cerveja', 4, 'Bebidas'),
+        ('Coca-Cola', 3, 'Bebidas'),
+        ('Pepsi', 2.8, 'Bebidas'),
+        ('Barbecue', 0.65, 'Molhos'),
+        ('Ketchup', 0.5, 'Molhos'),
+        ('Filé de Frango', 0.6, 'Ingredientes'),
+        ('Pão Integral', 0.9, 'Ingredientes'),
+        ('Mostarda', 0.45, 'Molhos'),
+        ('Suco Natural', 4.5, 'Bebidas'),
+        ('Maionese', 0.35, 'Molhos'),
+        ('Pão Australiano', 1.35, 'Ingredientes'),
+        ('Filé de Peixe', 0.8, 'Ingredientes'),
+        ('Alface', 1.2, 'Ingredientes'),
+        ('Tomate', 0.9, 'Ingredientes'),
+        ('Picles', 2.0, 'Ingredientes'),
+        ('Cebola', 0.6, 'Ingredientes'),
+        ('Pimentão', 0.9, 'Ingredientes');
