@@ -1,1 +1,1 @@
-Hello World!
+Aplicação que fornece ao usuário a possibilidade de "montar" e comprar um lanche, utilizando os ingredientes fornecidos à ele.
