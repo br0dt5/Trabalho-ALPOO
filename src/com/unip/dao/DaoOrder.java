@@ -78,7 +78,7 @@ public class DaoOrder {
         if(!isConnected())
                 connect();
         int clientID = getClientID(rg);
-        orders.insertValues(statement, clientID, rg, description, 0, payment);
+        orders.insertValues(statement, clientID, rg, description, value, payment);
     }
     
     public float getItemPrice(String item) {
